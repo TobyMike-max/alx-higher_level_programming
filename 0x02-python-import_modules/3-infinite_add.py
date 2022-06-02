@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    import argv from sys
+    from sys import argv
 
     total = 0
     count = len(argv)
