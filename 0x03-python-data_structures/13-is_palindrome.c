@@ -43,7 +43,7 @@ int is_palindrome(listint_t **head)
 	while (tmp)
 	{
 		size++;
-		tmp = tpm->next;
+		tmp = tmp->next;
 	}
 
 	tmp = *head;
