@@ -2,9 +2,10 @@
 # 101-square.py
 """Define a class Square."""
 
+
 class Square:
     """A Square class"""
-    
+
     def __init__(self, size=0, position=(0, 0)):
         """Instantiates a new class Square
 
