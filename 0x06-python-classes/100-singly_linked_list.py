@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # 100-singly_linked_list.py
+"""Define a Node and SinglyLinkedList."""
 
 class Node:
     """A singly_linked_list Node class"""
