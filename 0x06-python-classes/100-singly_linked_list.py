@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 100-singly_linked_list.py
-"""Define a Node and SinglyLinkedList."""
+"""Defines a Node and SinglyLinkedList."""
 
 
 class Node:
@@ -23,7 +23,6 @@ class Node:
 
     @data.setter
     def data(self, value):
-        """Sets data"""
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
@@ -35,7 +34,6 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        """Sets next_node"""
         if (not isinstance(value, Node) or
                 value != None):
             raise TypeError("next_node must be a Node object")
