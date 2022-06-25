@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 # 100-singly_linked_list.py
-"""Defines a Node and SinglyLinkedList."""
+"""Import python modules."""
 
 
 class Node:
-    """A singly_linked_list Node class"""
+    """A Node class"""
 
     def __init__(self, data, next_node=None):
         """Instantiate a new class Node.
@@ -29,7 +29,7 @@ class Node:
 
     @property
     def next_node(self):
-        """Gets next_node"""
+        """Retrieve next_node"""
         return (self.__next_node)
 
     @next_node.setter
@@ -40,7 +40,7 @@ class Node:
         self.__next_node = value
 
 class SinglyLinkedList:
-    """Represent a singly-linked list."""
+    """A singly-linked list class."""
 
     def __init__(self):
         """Initialize a new SinglyLinkedList."""
