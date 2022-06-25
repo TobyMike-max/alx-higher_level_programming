@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 # 100-singly_linked_list.py
-"""Import python modules."""
+"""Define classes for a singly-linked list."""
 
 
 class Node:
-    """A Node class"""
+    """Represent a node in a singly-linked list."""
 
     def __init__(self, data, next_node=None):
-        """Instantiate a new class Node.
+        """Initialize a new class Node.
 
         Args:
             data (int): The data of the new Node.
