@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 100-singly_linked_list.py
 """Define classes for a singly-linked list."""
 
 
@@ -17,7 +18,7 @@ class Node:
 
     @property
     def data(self):
-        """Retrieve data"""
+        """Retrieve/Sets data"""
         return (self.__data)
 
     @data.setter
@@ -28,13 +29,12 @@ class Node:
 
     @property
     def next_node(self):
-        """Retrieve next_node"""
+        """Retrieve/Sets next_node"""
         return (self.__next_node)
 
     @next_node.setter
     def next_node(self, value):
-        if (not isinstance(value, Node) and
-                value != None):
+        if not isinstance(value, Node) and value not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -63,7 +63,7 @@ class SinglyLinkedList:
             self.__head = new
         else:
             tmp = self.__head
-            while(tmp.next_node is != None and
+            while(tmp.next_node is not None and
                     tmp.next_node.data < value):
                 tmp = tmp.next_node
             new.next_node = tmp.next_node
@@ -73,7 +73,7 @@ class SinglyLinkedList:
         """Define the print() representation of a SInglyLinkedList."""
         values = []
         tmp = self.__head
-        while tmp is != None:
+        while tmp is not None:
             values.append(str(tmp.data))
             tmp = tmp.next_node
         return ('\n'.join(values))
