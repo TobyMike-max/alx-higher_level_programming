@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 8-rectangle.py
+# 9-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -49,7 +49,7 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.height = value
+        self.__height = value
 
     def area(self):
         """Returns the area of the rectangle."""
@@ -79,6 +79,15 @@ class Rectangle:
         if rect_1.area() >= rect_2.area():
             return (rect_1)
         return (rect_2)
+
+    @classmethod
+    def square(cls, size=0):
+        """Return a new Rectangle wit width and height equal to size.
+
+        Args:
+            size (int): The width and height of the new Rectangle.
+        """
+        return (cls(size, size))
 
     def __str__(self):
         """Returns the printable representation of the Rectangle.
