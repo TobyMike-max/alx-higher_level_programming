@@ -67,7 +67,7 @@ class Rectangle:
         """Return the Rectangle with the greater area.
 
         Args:
-            rect_1 (Rectangle): Te first Rectangle.
+            rect_1 (Rectangle): The first Rectangle.
             rect_2 (Rectangle): The second rectangle.
         Raises:
             TypeError: If either of rect_1 or rect_2 is not a Rectangle.
