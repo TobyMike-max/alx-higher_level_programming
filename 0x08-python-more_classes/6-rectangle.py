@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 # 6-rectangle.py
 """Defines a Rectangle class."""
 
