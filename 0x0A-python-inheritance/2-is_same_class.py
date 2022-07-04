@@ -11,10 +11,9 @@ def is_same_class(obj, a_class):
         a_class (class): The class
 
     Return:
-        True: On success
-        False: Otherwise
+        If obi is exactly an instance of a_class - True.
+        Otherwise - False.
     """
-    if isinstance(obj, a_class) == True:
+    if type(obj) == a_class:
         return (True)
-    else:
-        return (False)
+    return (False)
