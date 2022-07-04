@@ -14,6 +14,7 @@ def is_same_class(obj, a_class):
         True: On success
         False: Otherwise
     """
-    if (isinstance(obj, a_class)):
+    if isinstance(obj, a_class) == True:
         return (True)
-    return (False)
+    else:
+        return (False)
