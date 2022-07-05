@@ -14,5 +14,5 @@ if __name__ == "__main__":
         store = []
     
     for i in len(sys.argv):
-        store.append(i)
+        store.append(sys.argv[i])
     save_to_json_file(store, 'add_item.json')
