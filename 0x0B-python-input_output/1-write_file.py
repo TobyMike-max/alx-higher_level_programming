@@ -3,7 +3,7 @@
 """Defines a function that writes to a text file."""
 
 
-def read_file(filename="", text=""):
+def write_file(filename="", text=""):
     """Function that writes a text to a file.
 
     Args:
@@ -12,5 +12,5 @@ def read_file(filename="", text=""):
     Returns:
         The number of characters written.
     """
-    with open(filename, 'w', encoding="utf-8") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         return (f.write(text))
