@@ -9,6 +9,8 @@ def read_file(filename="", text=""):
     Args:
         filename (str): Name of the file to open.
         text (str): The string of text to write to a file.
+    Returns:
+        The number of characters written.
     """
-    with open(filename, 'r+', encoding="utf-8") as f:
+    with open(filename, 'w', encoding="utf-8") as f:
         return (f.write(text))
