@@ -96,7 +96,7 @@ But if ``value`` is not an integer, a ``TypeError`` is raised.
 
 ::
 
-    >>> bg.integer_validator("invalid dict", {3:None, 1:"eye"})
+    >>> bg.integer_validator("invalid dict", {3, 4})
     Traceback (most recent call last):
     TypeError: invalid dict must be an integer
 
