@@ -146,5 +146,5 @@ will be raised.
 
     >>> my_list = MyList([1, 'Betty', 'PyCode', 7])
     >>> my_list.print_sorted()
-    Traceback (most recent call last)
-    TypeError: unordered types: str() < int()
+    Traceback (most recent call last):
+    TypeError: '<' not supported between instances of 'str' and 'int'
