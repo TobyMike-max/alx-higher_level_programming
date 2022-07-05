@@ -100,6 +100,11 @@ But if ``value`` is not an integer, a ``TypeError`` is raised.
     Traceback (most recent call last):
     TypeError: invalid dict must be an integer
 
+::
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
 And if ``value`` is an integer, but less than or equal to zero, a ValueError
 is raised
 
