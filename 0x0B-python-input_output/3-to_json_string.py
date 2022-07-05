@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 2-write_file.py
+# 3-to_json_string.py
 """Defines a function that returns the JSON rep of an object(string)."""
 import json
 
