@@ -133,11 +133,13 @@ class Rectangle(Base):
             for k, v in kwargs.items():
                 if k == "id":
                     if v is None:
-                        self.__init__(self.size, self.x, self.y)
+                        self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = v
-                elif k == "size":
-                    self.size = v
+                elif k == "width":
+                    self.width = v
+                elif k == "height":
+                    self.height = v
                 elif k == "x":
                     self.x = v
                 elif k == "y":
