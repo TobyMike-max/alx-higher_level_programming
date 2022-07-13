@@ -224,7 +224,7 @@ class TestSqaure_area(unittest.TestCase):
     """Unittests for testing the area method of the Sqaure class."""
 
     def test_area_small(self):
-        with self.assertEqual(100, Square(10, 0, 0, 1).area())
+        self.assertEqual(100, Square(10, 0, 0, 1).area())
 
     def test_area_large(self):
         s = Square(23423423234234233423423, 0, 0, 2)
