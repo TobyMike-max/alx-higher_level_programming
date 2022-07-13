@@ -205,6 +205,10 @@ class TestSquare_y(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Square(1, 3, None)
 
+    def test_negative_y(self):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Square(1, 2, -3)
+
 class TestSqaure_order_of_initialization(unittest.TestCase):
     """Unittests for testing order of Sqaure attribute initialization."""
 
