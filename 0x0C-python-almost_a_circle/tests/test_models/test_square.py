@@ -248,6 +248,73 @@ class TestSqaure_area(unittest.TestCase):
 class TestSquare_stdout(unittest.TestCase):
     """Unittests for testing __str__ and display methods of Square class."""
 
+    @staticmethod
+    def capture_stdout(sq, method):
+        """Captures and returns text printed to stdout.
+
+        ARgs:
+            sq (Square): The Square to print to stdout.
+            method (str): The method to run on sq.
+        Returns:
+        The text printed to stdout by calling method on sq.
+        """
+        capture = io.StringIO()
+        sys.stdout = capture
+        if method == "print":
+            print(sq)
+        else:
+            sq.display()
+        sys.stdout = sys.__stdout__
+        return capture
+
+    def test_str_method_print_size(self):
+        s = Square(4)
+        capture = TestSquare_stdout.capture_stdout(s, "print")
+        correct = "[Square] ({}) 0/0 - 4\n".format(s.id)
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_str_method_size_x(self):
+        s = Square(5, 5)
+        correct = "[Square] ({}) 5/0 - 5".format(s.id)
+        self.assertEqual(correct, s.__str__())
+
+    def test_str_method_size_x_y(self):
+        s = Square(7, 4, 22)
+        correct = "[Square] ({}) 4/22 - 7".format(s.id)
+        self.assertEqual(correct, str(s))
+
+    def test_str_method_one_arg(self):
+        s = Square(1, 2, 3, 4)
+        with self.assertRaises(TypeError):
+            s.__str__(1)
+
+    # Test display method
+    def test_display_size(self):
+        s = Square(2, 0, 0, 9)
+        capture = TestSquare_stdout.capture_stdout(s, "display")
+        self.assertEqual("##\n##\n", capture.getvalue())
+
+    def test_display_size_x(self):
+        s = Square(3, 1, 0, 18)
+        capture = TestSquare_stdout.capture_stdout(s, "display")
+        self.assertEqual(" ###\n ##\n ###\n", capture.getvalue())
+
+    def test_display_size_y(self):
+        s = Square(4, 0, 1, 9)
+        capture = TestSquare_stdout.capture_stdout(s, "display")
+        display = "\n####\n####\n####\n####\n"
+        self.assertEqual(display, capture.getvalue())
+
+    def test_display_size_x_y(self):
+        s = Square(2, 3, 2, 1)
+        capture = TestSquare_stdout.capture_stdout(s, "display")
+        display = "\n\n   ##\n   ##\n"
+        sef.assertEqual(display, capture.getvalue())
+
+    def test_display_one_arg(self):
+        s = Square(3, 4, 5, 2)
+        with self.assertRaises(TypeError):
+            s.display(1)
 class TestSqaure_update_args(unittest.TestCase):
     """Unittests for testing update args metod of the Square class."""
 
@@ -268,6 +335,21 @@ class TestSquare_update_kwargs(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         s.update(id=1)
         self.assertEqual("[Square] (1) 10/10 - 10", str(s))
+
+    def test_update_kwargs_two(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=89, size=1)
+        self.assertEqual("[Square] (89) 10/10 - 1", str(s))
+
+    def test_update_kwargs_three(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=89, size=1, x=2)
+        self.assertEqual("[Square] (89) 2/10 - 1", str(s))
+
+    def test_update_kwargs_four(self):
+        s = Square(10, 10, 10, 10)
+        s.update(id=89, size=1, x=2, y=3)
+        self.assertEqual("[Square] (89) 2/3 - 1", str(s))
 
 class TestSqaure_to_dictionary(unittest.TestCase):
     """Unittests for testing to_dictionary method of the Square class."""
