@@ -178,7 +178,7 @@ class TestRectangle_height(unittest.TestCase):
 
     def test_dict_height(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(5, {"one:" 1, "two": 2})
+            Rectangle(5, {"one": 1, "two": 2})
 
     def test_list_height(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -241,3 +241,6 @@ class TestRectangle_stdout(unittest.TestCase):
         r = Rectangle(5, 5, 1)
         correct = "[Rectangle] ({}) 1/0 - 5/5".format(r.id)
         self.assertEqual(correct, r.__str__())
+
+if __name__ == "__main__":
+    unittest.main()
