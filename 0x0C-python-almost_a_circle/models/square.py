@@ -76,6 +76,7 @@ class Square(Rectangle):
                     raise TypeError(msg.format(k))
 
     def to_dictionary(self):
+        """Return the dictionary representation of the Square."""
         return {
             "id": self.id,
             "size": self.size,
@@ -84,5 +85,6 @@ class Square(Rectangle):
         }
 
     def __str__(self):
+        """Return the print() and str() representation of a Square."""
         msg = "[Square] ({}) {}/{} - {}"
         return (msg.format(self.id, self.x, self.y, self.width))
