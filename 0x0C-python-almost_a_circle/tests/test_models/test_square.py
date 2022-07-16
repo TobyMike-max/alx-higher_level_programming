@@ -328,6 +328,21 @@ class TestSqaure_update_args(unittest.TestCase):
         s.update(80)
         self.assertEqual("[Square] (80) 10/10 - 10", str(s))
 
+    def test_update_args_two_id_size(self):
+        s= Square(10, 10, 10, 10)
+        s.update(80, 6)
+        self.assertEqual("[Square] (80) 10/10 - 6", str(s))
+
+    def test_update_args_three_id_size_x(self):
+        s = Square(10, 10, 10, 10)
+        s.update(80, 6, 2)
+        self.assertEqual("[Square] (80) 2/10 - 6", str(s))
+
+    def test_update_args_four_id_size_x_y(self):
+        s = Square(10, 10, 10, 10)
+        s.update(80, 6, 2, 3)
+        self.assertEqual("[Square] (80) 2/3 - 6", str(s))
+
 class TestSquare_update_kwargs(unittest.TestCase):
     """Unittests for testing update kwargs method of Square class."""
     
