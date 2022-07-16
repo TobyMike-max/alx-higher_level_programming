@@ -57,6 +57,7 @@ class Square(Rectangle):
                     msg = "update() takes at max 4 positional arguments"\
                             " but {} were given"
                     raise TypeError(msg.format(len(args)))
+                a += 1
 
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
