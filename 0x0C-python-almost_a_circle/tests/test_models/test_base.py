@@ -292,8 +292,24 @@ class TestBase_create(unittest.TestCase):
         s2 = Square.create(**s1_dictionary)
         self.assertNotEqual(s1, s2)
 
+    def test_create_square_only_id(self):
+        s1 = Square.create(**{"id": 89})
+        self.assertEqual("[Square] (89) 0/0 - 1", str(s1))
+
+    def test_create_square_id_size(self):
+        s1 = Square.create(**{"id": 89, "size": 1})
+        self.assertEqual("[Square] (89) 0/0 - 1", str(s1))
+
+    def test_create_square_id_size_x(self):
+        s1 = Square.create(**{"id": 89, "size": 1, "x": 2})
+        self.assertEqual("[Square] (89) 2/0 - 1", str(s1))
+
+    def test_create_square_id_size_x_y(self):
+        s1 = Square.create(**{"id": 89, "size": 1, "x": 2, "y": 3})
+        self.assertEqual("[Square] (89) 2/3 - 1", str(s1))
+
 class TestBase_load_from_file(unittest.TestCase):
-    """Unittest fro testing load_from_file_method of Base class."""
+    """Unittest for testing load_from_file_method of Base class."""
 
     @classmethod
     def tearDown(self):
