@@ -3,13 +3,11 @@
 # Usage: ./0-select_states.py <mysql username> \
 #                             <mysql password> \
 #                             <database name>
-
 import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    arg = sys.argv
-    db = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     cur = db.cursor()
     cur.execute("SELECT * FROM states")
     for state in cur.fetchall():
