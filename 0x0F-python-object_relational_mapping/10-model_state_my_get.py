@@ -20,6 +20,6 @@ if __name__ == "__main__":
 
     usr = session.query(State).filter(User.name==sys.argv[4])
     if usr:
-        print(usr.id)
+        print('{}'.format(usr.id))
     print('Not found')
     session.close()
