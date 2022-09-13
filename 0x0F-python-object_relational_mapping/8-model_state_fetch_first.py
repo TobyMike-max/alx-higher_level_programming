@@ -19,7 +19,7 @@ if __name__ == "__main__":
     session = Session()
 
     fir = session.query(State).first()
-    if fir == None:
+    if fir is None:
         print("Nothing")
     print("{}: {}".format(fir.id, fir.name))
     session.close()
