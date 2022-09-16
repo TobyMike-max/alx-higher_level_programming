@@ -14,7 +14,7 @@ if __name__ == "__main__":
     db = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
     cur = db.cursor()
     cur.execute("SELECT cities.name FROM cities JOIN states
-                ON cities.state_id = state.id 
+                ON cities.state_id = states.id 
                 WHERE states.name = BINARY %s
                 ORDER BY cities.id", (arg[4],))
     for city in cur.fetchall():
