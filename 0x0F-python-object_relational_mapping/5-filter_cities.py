@@ -13,10 +13,10 @@ if __name__ == "__main__":
     arg = sys.argv
     db = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
     cur = db.cursor()
-    cur.execute("SELECT cities.name FROM cities \
-                JOIN states ON cities.state_id = states.id \
-                WHERE states.name LIKE %s \
-                ORDER BY cities.id", (arg[4],))
+    cur.execute("SELECT c.name FROM cities as c \
+                JOIN states as s ON c.state_id = s.id \
+                WHERE s.name = BINARY %s \
+                ORDER BY c.id", (arg[4],))
     rows = cursor.fetchall()
     print(", ".join(city[0] for city in rows))
     cur.close()
