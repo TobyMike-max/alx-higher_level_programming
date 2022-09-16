@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Script that lists all cities from database hbtn_0e_4_usa.
+""" Script that lists all cities from database hbtn_0e_4_usa.
 Takes three arguments. Usage:
                                 ./4-cities_by_states.py
                                 <mysql username>
@@ -10,6 +9,7 @@ Takes three arguments. Usage:
 
 import sys
 import MySQLdb
+
 
 if __name__ == "__main__":
     arg = sys.argv
