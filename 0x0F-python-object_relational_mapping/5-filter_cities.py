@@ -15,7 +15,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute("SELECT cities.name FROM cities JOIN states
                 ON cities.state_id = states.id 
-                WHERE states.name = BINARY %s
+                WHERE states.name LIKE %s
                 ORDER BY cities.id", (arg[4],))
     for city in cur.fetchall():
         print(", ".join(city[0]))
