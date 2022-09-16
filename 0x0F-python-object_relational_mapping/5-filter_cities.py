@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-"""
-Script that lists all cities from database hbtn_0e_4_usa.
-Takes three arguments. Usage:
-                                ./4-cities_by_states.py
-                                <mysql username>
-                                <mysql password>
-                                <database name>
+""" Lists all cities of a state from the database hbtn_0e_4_usa.
+        Usage: ./5-filter_cities.py <mysql username> \
+                                        <mysql password> \
+                                        <database name>  \
+                                        <state name searched>
 """
 
 import sys
@@ -15,9 +13,9 @@ if __name__ == "__main__":
     arg = sys.argv
     db = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
     cur = db.cursor()
-    cur.execute("SELECT `c`.`id`, `c`.`name`, `s`.`name` FROM `cities` as `c` \
-                    INNER JOIN `states` as `s` \
-                    ON `c`.`state_id` = `s`.`id` \
-                    ORDER BY `c`.`id`")
+    cur.execute("SELECT c.name FROM cities as c INNER JOIN states as s
+                ON c.state_id = s.id WHERE s.name = BINARY %s", (arg[4],))
     for state in cur.fetchall():
         print(state)
+    cur.close()
+    db.close()
