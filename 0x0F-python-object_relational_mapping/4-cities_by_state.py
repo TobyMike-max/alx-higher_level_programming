@@ -13,7 +13,9 @@ if __name__ == "__main__":
     arg = sys.argv
     db = MySQLdb.connect(user=arg[1], passwd=arg[2], db=arg[3])
     cur = db.cursor()
-    cur.execute("SELECT cities.id, cities.name, states.name FROM cities
-                JOIN states ON cities.state_id=states.id")
+    cur.execute("SELECT `c`.`id`, `c`.`name`, `s`.`name` FROM `cities` as `c` \
+                INNER JOIN `states` as `s` \
+                ON `c`.`state_id` = `s`.`id` \
+                ORDER BY `c`.`id`")
     for state in cur.fetchall():
         print(state)
