@@ -18,7 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    usr = session.query(State).filter(User.name == sys.argv[4]).first()
+    usr = session.query(State).filter(State.name == sys.argv[4]).first()
     if usr:
         print('{}'.format(usr.id))
     print('Not found')
