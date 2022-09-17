@@ -17,7 +17,7 @@ if __name__ == "__main__":
                 JOIN states as s ON c.state_id = s.id \
                 WHERE s.name = BINARY %s \
                 ORDER BY c.id", (arg[4],))
-    rows = cursor.fetchall()
+    rows = cur.fetchall()
     print(", ".join(city[0] for city in rows))
     cur.close()
     db.close()
