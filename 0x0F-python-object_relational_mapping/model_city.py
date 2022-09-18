@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" File that contains the class definition of a City
+"""
+File that contains the class definition of a City.
+Using Python Object Relational Mapping.
 """
 
 from sqlalchemy import Column, Integer, String
