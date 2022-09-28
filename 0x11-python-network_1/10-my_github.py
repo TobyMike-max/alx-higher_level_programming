@@ -10,5 +10,5 @@ from sys import argv
 if __name__ == "__main__":
     payload = {"username": argv[1], "password": argv[2]}
 
-    res = requests.post("https://api.github.com/user", data=payload)
+    res = requests.post("https://api.github.com/user", json=payload)
     print(res.text["id"])
