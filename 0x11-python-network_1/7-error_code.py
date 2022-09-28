@@ -9,6 +9,7 @@ import requests
 
 if __name__ == "__main__":
     res = requests.get(argv[1])
-    stat = res.status_code
-    if stat >= 400:
-        print("Error code: {}".format(stat))
+    if res.status_code >= 400:
+        print("Error code: {}".format(res.status_code))
+    else:
+        print(res.text)
