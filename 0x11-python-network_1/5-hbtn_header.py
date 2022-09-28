@@ -4,11 +4,11 @@
 Usage: ./5-hbtn_header.py <URL>
 """
 import sys
-import request
+import requests
 
 
 if __name__ == "__main__":
     url = sys.argv[1]
 
-    r = request.get(url)
-    print(r.headers.get("X-Request-Id"))
+    response = requests.get(url)
+    print(response.headers.get("X-Request-Id"))
