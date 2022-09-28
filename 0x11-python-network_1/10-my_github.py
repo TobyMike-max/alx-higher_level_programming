@@ -8,7 +8,11 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    payload = {"username": argv[1], "password": argv[2]}
 
-    res = requests.post("https://api.github.com/user", json=payload)
-    print(res.text["id"])
+    res = requests.get("https://api.github.com/user", auth=(argv[1], argv[2]))
+
+    if res.status_code == 200:
+        data = res.json()
+        print(data.get("id"))
+    else:
+        print("None")
