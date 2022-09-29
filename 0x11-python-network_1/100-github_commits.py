@@ -12,9 +12,9 @@ if __name__ == "__main__":
             argv[1], argv[2])
 
     res = requests.get(url)
-    res_json = res.json() 
+    res_json = res.json()
     try:
-        for i in range(10):
+        for i in range(0, 10):
             print("{}: {}".format(
                 res_json[i].get("sha"),
                 res_json[i].get("commit").get("author").get("name")))
