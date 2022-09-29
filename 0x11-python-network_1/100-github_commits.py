@@ -12,11 +12,11 @@ if __name__ == "__main__":
             argv[1], argv[2])
 
     res = requests.get(url)
-    res_json = res.json()
+    res_json = res.json() 
     try:
         for i in range(10):
             print("{}: {}".format(
-                res_json[i]["sha"],
-                res_json[i]["commit"]["author"]["name"]))
+                res_json[i].get("sha"),
+                res_json[i].get("commit").get("author").get("name")))
     except IndexError:
         pass
